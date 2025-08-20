@@ -1,0 +1,76 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Environment Files ###
+.env
+.env.local
+.env.dev
+.env.prod
+application-local.properties
+application-dev.properties
+application-prod.properties
+
+### AI Agent Files ###
+.claude/
+.cursor/
+claude-session-*
+.ai-config/
+ai-context.md
+CLAUDE.md
+.mcp.json
+
+### Logs ###
+logs/
+*.log
+*.log.*
+log/
+
+### Temporary Files ###
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+### Docker ###
+docker-compose.override.yml
+.dockerignore
+
+### Database ###
+*.db
+*.sqlite
+*.sqlite3

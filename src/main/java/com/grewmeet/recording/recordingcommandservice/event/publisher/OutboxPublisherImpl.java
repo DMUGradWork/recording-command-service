@@ -1,4 +1,4 @@
-package com.grewmeet.recording.recordingcommandservice.service;
+package com.grewmeet.recording.recordingcommandservice.event.publisher;
 
 import com.grewmeet.recording.recordingcommandservice.domain.outbox.Outbox;
 import com.grewmeet.recording.recordingcommandservice.domain.outbox.OutboxStatus;
@@ -13,11 +13,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class OutboxPublisher {
+public class OutboxPublisherImpl implements OutboxPublisher {
 
     private final OutboxRepository outboxRepository;
     private final KafkaTemplate<String, String> kafkaTemplate;
 
+    @Override
     @Scheduled(fixedDelay = 5000) // 5초마다 실행
     public void publishPendingEvents() {
         List<Outbox> pendingEvents = outboxRepository.findByStatusOrderByCreatedAtAsc(OutboxStatus.PENDING);

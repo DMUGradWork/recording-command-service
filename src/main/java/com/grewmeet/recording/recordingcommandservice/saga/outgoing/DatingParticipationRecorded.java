@@ -1,5 +1,7 @@
 package com.grewmeet.recording.recordingcommandservice.saga.outgoing;
 
+import com.grewmeet.recording.recordingcommandservice.saga.incoming.DatingParticipationReceived;
+
 import java.time.LocalDateTime;
 
 public record DatingParticipationRecorded(
@@ -9,4 +11,15 @@ public record DatingParticipationRecorded(
     LocalDateTime participationDate,    // 참여 날짜
     String status,                      // 참여 상태
     LocalDateTime recordedAt            // 기록 생성 시간
-) {}
+) {
+    public static DatingParticipationRecorded from(DatingParticipationReceived received) {
+        return new DatingParticipationRecorded(
+                null,  // id는 Query Service에서 생성
+                received.userId().toString(),
+                received.datingMeetingId().toString(),
+                received.joinedAt(),
+                "PARTICIPATED",
+                LocalDateTime.now()
+        );
+    }
+}

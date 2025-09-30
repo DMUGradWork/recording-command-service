@@ -1,25 +1,33 @@
 package com.grewmeet.recording.recordingcommandservice.saga.outgoing;
 
-import com.grewmeet.recording.recordingcommandservice.saga.incoming.DatingParticipationReceived;
+import com.grewmeet.recording.recordingcommandservice.domain.dating.DatingParticipation;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
+/**
+ * Query Service로 발행할 데이팅 참여 기록 이벤트
+ */
 public record DatingParticipationRecorded(
-    Long id,                            // 참여 기록 ID
-    String userId,                      // 사용자 ID
-    String datingEventId,               // 데이팅 이벤트 ID
-    LocalDateTime participationDate,    // 참여 날짜
-    String status,                      // 참여 상태
-    LocalDateTime recordedAt            // 기록 생성 시간
+    Long id,                        // 참여 기록 ID
+    UUID datingGroupId,             // 데이팅 그룹 ID
+    UUID userId,                    // 사용자 ID
+    UUID meetingId,                 // 미팅 ID
+    String eventName,               // 이벤트명
+    LocalDateTime scheduledAt,      // 예정 시간
+    LocalDateTime meetingCreatedAt, // 미팅 생성 시간
+    LocalDateTime recordedAt        // 기록 생성 시간
 ) {
-    public static DatingParticipationRecorded from(DatingParticipationReceived received) {
+    public static DatingParticipationRecorded from(DatingParticipation participation) {
         return new DatingParticipationRecorded(
-                null,  // id는 Query Service에서 생성
-                received.userId().toString(),
-                received.datingMeetingId().toString(),
-                received.joinedAt(),
-                "PARTICIPATED",
-                LocalDateTime.now()
+                participation.getId(),
+                participation.getDatingGroupId(),
+                participation.getUserId(),
+                participation.getMeetingId(),
+                participation.getEventName(),
+                participation.getScheduledAt(),
+                participation.getMeetingCreatedAt(),
+                participation.getCreatedAt()
         );
     }
 }

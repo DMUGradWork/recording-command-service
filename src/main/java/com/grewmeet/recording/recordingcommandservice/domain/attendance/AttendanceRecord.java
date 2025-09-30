@@ -35,4 +35,16 @@ public class AttendanceRecord extends BaseEntity {
         record.status = AttendanceStatus.PRESENT;
         return record;
     }
+    
+    /**
+     * 출석 기록 수정
+     */
+    public void update(LocalDateTime attendanceTime, AttendanceStatus status) {
+        if (attendanceTime != null) {
+            this.attendanceTime = attendanceTime;
+        }
+        if (status != null) {
+            this.status = status;
+        }
+    }
 }

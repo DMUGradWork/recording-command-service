@@ -18,33 +18,21 @@ public class AttendanceRecord extends BaseEntity {
     private String userId;
 
     @Column(nullable = false)
-    private String sessionId;
-
-    @Column(nullable = false)
     private LocalDateTime attendanceTime;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private AttendanceStatus status;
-
-    public static AttendanceRecord create(String userId, String sessionId, LocalDateTime attendanceTime) {
+    public static AttendanceRecord create(String userId, LocalDateTime attendanceTime) {
         AttendanceRecord record = new AttendanceRecord();
         record.userId = userId;
-        record.sessionId = sessionId;
         record.attendanceTime = attendanceTime != null ? attendanceTime : LocalDateTime.now();
-        record.status = AttendanceStatus.PRESENT;
         return record;
     }
-    
+
     /**
      * 출석 기록 수정
      */
-    public void update(LocalDateTime attendanceTime, AttendanceStatus status) {
+    public void update(LocalDateTime attendanceTime) {
         if (attendanceTime != null) {
             this.attendanceTime = attendanceTime;
-        }
-        if (status != null) {
-            this.status = status;
         }
     }
 }

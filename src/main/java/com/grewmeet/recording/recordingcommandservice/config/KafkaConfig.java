@@ -26,7 +26,7 @@ public class KafkaConfig {
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
         // Producer 안정성 설정
-        config.put(ProducerConfig.ACKS_CONFIG, "1");  // Leader 확인만 (성능과 안정성 균형)
+        config.put(ProducerConfig.ACKS_CONFIG, "all");  // 모든 replica 확인 (멱등성 필수)
         config.put(ProducerConfig.RETRIES_CONFIG, 3);  // 재시도 횟수
         config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);  // 멱등성 보장
 

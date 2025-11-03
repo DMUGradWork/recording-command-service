@@ -2,7 +2,7 @@ package com.grewmeet.recording.recordingcommandservice.event.publisher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.grewmeet.recording.recordingcommandservice.domain.attendance.AttendanceRecord;
-import com.grewmeet.recording.recordingcommandservice.saga.outgoing.AttendanceRecordCreated;
+import com.grewmeet.recording.recordingcommandservice.event.schema.outgoing.AttendanceRecordCreated;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;

@@ -1,4 +1,4 @@
-package com.grewmeet.recording.recordingcommandservice.saga.incoming;
+package com.grewmeet.recording.recordingcommandservice.event.schema.incoming;
 
 import java.time.LocalDateTime;
 

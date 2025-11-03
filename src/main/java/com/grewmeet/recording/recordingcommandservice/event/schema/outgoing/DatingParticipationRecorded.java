@@ -1,7 +1,6 @@
-package com.grewmeet.recording.recordingcommandservice.saga.outgoing;
+package com.grewmeet.recording.recordingcommandservice.event.schema.outgoing;
 
 import com.grewmeet.recording.recordingcommandservice.domain.dating.DatingParticipation;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 

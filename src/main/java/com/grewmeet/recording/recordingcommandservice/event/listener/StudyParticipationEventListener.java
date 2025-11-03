@@ -1,11 +1,11 @@
-package com.grewmeet.recording.recordingcommandservice.event;
+package com.grewmeet.recording.recordingcommandservice.event.listener;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.grewmeet.recording.recordingcommandservice.domain.study.StudyParticipation;
+import com.grewmeet.recording.recordingcommandservice.event.schema.incoming.StudyParticipationReceived;
+import com.grewmeet.recording.recordingcommandservice.event.schema.outgoing.StudyParticipationRecorded;
 import com.grewmeet.recording.recordingcommandservice.repository.StudyParticipationRepository;
-import com.grewmeet.recording.recordingcommandservice.saga.incoming.StudyParticipationReceived;
-import com.grewmeet.recording.recordingcommandservice.saga.outgoing.StudyParticipationRecorded;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
